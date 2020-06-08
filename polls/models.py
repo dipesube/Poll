@@ -6,9 +6,9 @@ from django.db import models
 #every model has a question class
 #Question inherits Model
 
-class Question(modles.Model): 
-    question_text = modles.CharField(max_length = 200)
-    pub_date = models.DateTimeFiel('Date Published')
+class Question(models.Model): 
+    question_text = models.CharField(max_length = 200)
+    pub_date = models.DateTimeField('Date Published')
     def __str__(self):
         return question_text
 
@@ -16,7 +16,7 @@ class Question(modles.Model):
 #Choice and question are related using ForeignKey
 class Choice(models.Model):
     questionID = models.ForeignKey(Question, on_delete=models.CASCADE )
-    choice_text = models.CharFiel(max_length = 200)
+    choice_text = models.CharField(max_length = 200)
     votes = models.IntegerField(default=0)
 
     #retreive choice text
